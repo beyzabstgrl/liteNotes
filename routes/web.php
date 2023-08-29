@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/list',[NotesController::class,'index'])->name('list.index');
+
+    Route::get('/notes/create',[NotesController::class,'create'])->name('create');
+
+    Route::post('/notes/add',[NotesController::class,'addNotes'])->name('add');
 });
+
+
